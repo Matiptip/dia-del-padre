@@ -1,0 +1,83 @@
+<style>
+        table {<br />            border-collapse: collapse;<br />            width: 100%;<br />        }<br />        th, td {<br />            border: 1px solid #ddd;<br />            padding: 8px;<br />        }<br />        th {<br />            background-color: #f2f2f2;<br />        }<br />        #locationInput {<br />            margin-bottom: 10px;<br />            padding: 6px;<br />            width: 50%;<br />        }<br />    </style>
+<h2>Promociones Día del Padre</h2>
+<input id="locationInput" type="text" placeholder="Buscar por localidad..." />
+
+<!-- Agrega aquí el resto de los comercios extraídos del PDF -->
+<table id="promoTable">
+<thead>
+<tr>
+<th>Nombre del Comercio</th>
+<th>Dirección</th>
+<th>Localidad</th>
+<th>Promoción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aptitud Ropa Deportiva</td>
+<td>25 de mayo 208</td>
+<td>Morón</td>
+<td>30% en prendas seleccionadas - 3 cuotas sin interés</td>
+</tr>
+<tr>
+<td>Davor</td>
+<td>25 de mayo 212</td>
+<td>Morón</td>
+<td>10% de descuento en efectivo</td>
+</tr>
+<tr>
+<td>Devre</td>
+<td>25 de Mayo 224</td>
+<td>Morón</td>
+<td>3x2 en productos seleccionados y Cuotas sin interés</td>
+</tr>
+<tr>
+<td>Orso Bianco</td>
+<td>25 de Mayo 236</td>
+<td>Morón</td>
+<td>Compra de $100.000: perfume de regalo. 2 prendas 20% off, 3 prendas 30% off, 4 prendas 40% off</td>
+</tr>
+<tr>
+<td>La Cueva Librería</td>
+<td>Arias 2354</td>
+<td>Castelar</td>
+<td>10% en efectivo</td>
+</tr>
+<tr>
+<td>John John</td>
+<td>Arias 2399</td>
+<td>Castelar</td>
+<td>20% en efectivo - 3 cuotas sin interés</td>
+</tr>
+<tr>
+<td>Benita Home</td>
+<td>Emilio Castro 695</td>
+<td>Haedo</td>
+<td>6 cuotas sin interés / 20 % OFF abonando en efectivo o transferencia</td>
+</tr>
+<tr>
+<td>Rutas del Vino</td>
+<td>Carlos Gardel 2402</td>
+<td>El Palomar</td>
+<td>15% en efectivo, débito o transferencia en estuchería, regalería y vinos</td>
+</tr>
+</tbody>
+</table>
+<script>
+        function searchTable() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("locationInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("promoTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) { td = tr[i].getElementsByTagName("td")[2]; if (td) { if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
