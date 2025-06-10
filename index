@@ -1,83 +1,153 @@
-<style>
-        table {<br />            border-collapse: collapse;<br />            width: 100%;<br />        }<br />        th, td {<br />            border: 1px solid #ddd;<br />            padding: 8px;<br />        }<br />        th {<br />            background-color: #f2f2f2;<br />        }<br />        #locationInput {<br />            margin-bottom: 10px;<br />            padding: 6px;<br />            width: 50%;<br />        }<br />    </style>
-<h2>Promociones Día del Padre</h2>
-<input id="locationInput" type="text" placeholder="Buscar por localidad..." />
-
-<!-- Agrega aquí el resto de los comercios extraídos del PDF -->
-<table id="promoTable">
-<thead>
-<tr>
-<th>Nombre del Comercio</th>
-<th>Dirección</th>
-<th>Localidad</th>
-<th>Promoción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Aptitud Ropa Deportiva</td>
-<td>25 de mayo 208</td>
-<td>Morón</td>
-<td>30% en prendas seleccionadas - 3 cuotas sin interés</td>
-</tr>
-<tr>
-<td>Davor</td>
-<td>25 de mayo 212</td>
-<td>Morón</td>
-<td>10% de descuento en efectivo</td>
-</tr>
-<tr>
-<td>Devre</td>
-<td>25 de Mayo 224</td>
-<td>Morón</td>
-<td>3x2 en productos seleccionados y Cuotas sin interés</td>
-</tr>
-<tr>
-<td>Orso Bianco</td>
-<td>25 de Mayo 236</td>
-<td>Morón</td>
-<td>Compra de $100.000: perfume de regalo. 2 prendas 20% off, 3 prendas 30% off, 4 prendas 40% off</td>
-</tr>
-<tr>
-<td>La Cueva Librería</td>
-<td>Arias 2354</td>
-<td>Castelar</td>
-<td>10% en efectivo</td>
-</tr>
-<tr>
-<td>John John</td>
-<td>Arias 2399</td>
-<td>Castelar</td>
-<td>20% en efectivo - 3 cuotas sin interés</td>
-</tr>
-<tr>
-<td>Benita Home</td>
-<td>Emilio Castro 695</td>
-<td>Haedo</td>
-<td>6 cuotas sin interés / 20 % OFF abonando en efectivo o transferencia</td>
-</tr>
-<tr>
-<td>Rutas del Vino</td>
-<td>Carlos Gardel 2402</td>
-<td>El Palomar</td>
-<td>15% en efectivo, débito o transferencia en estuchería, regalería y vinos</td>
-</tr>
-</tbody>
-</table>
-<script>
-        function searchTable() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("locationInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("promoTable");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 1; i < tr.length; i++) { td = tr[i].getElementsByTagName("td")[2]; if (td) { if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }       
-            }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Promociones Día del Padre</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
         }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #locationInput {
+            margin-bottom: 10px;
+            padding: 6px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>Promociones Día del Padre</h2>
+    <input type="text" id="locationInput" onkeyup="searchTable()" placeholder="Buscar por localidad...">
+    
+    <table id="promoTable">
+        <thead>
+            <tr>
+                <th>Nombre del Comercio</th>
+                <th>Dirección</th>
+                <th>Localidad</th>
+                <th>Promoción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Aptitud Ropa Deportiva</td><td>25 de mayo 208</td><td>Morón</td><td>30% en prendas seleccionadas - 3 cuotas sin interés</td></tr>
+            <tr><td>Davor</td><td>25 de mayo 212</td><td>Morón</td><td>10% de descuento en efectivo</td></tr>
+            <tr><td>Devre</td><td>25 de Mayo 224</td><td>Morón</td><td>3x2 en productos seleccionados y Cuotas sin interés</td></tr>
+            <tr><td>Orso Bianco</td><td>25 de Mayo 236</td><td>Morón</td><td>Compra de $100.000: perfume de regalo. 2 prendas 20% off, 3 prendas 30% off, 4 prendas 40% off</td></tr>
+            <tr><td>Malen</td><td>9 de Julio 181</td><td>Morón</td><td>10% en efectivo. Participan de un sorteo por una orden de compra de $30.000</td></tr>
+            <tr><td>Wrangler</td><td>Belgrano 118</td><td>Morón</td><td>20% en camperas de invierno seleccionadas - 3 cuotas sin interés - 10% en efectivo en toda la tienda</td></tr>
+            <tr><td>Calzados Lazio</td><td>Brown 681</td><td>Morón</td><td>10% de descuento en efectivo - 3 y 6 cuotas sin interés</td></tr>
+            <tr><td>Calzados Lazio</td><td>Brown 787</td><td>Morón</td><td>10% de descuento en efectivo - 3 y 6 cuotas sin interés</td></tr>
+            <tr><td>Bohemian</td><td>Brown 828</td><td>Morón</td><td>20% en efectivo en prendas de abrigo</td></tr>
+            <tr><td>BlackSheep</td><td>Brown 828, local 13</td><td>Morón</td><td>20% de descuento en efectivo o transferencia</td></tr>
+            <tr><td>Moron Shop</td><td>Brown 828, local 16</td><td>Morón</td><td>10% de descuento</td></tr>
+            <tr><td>TBR</td><td>Brown 921</td><td>Morón</td><td>10% en todos los productos y 15% en morrales en efectivo</td></tr>
+            <tr><td>Dos Padres</td><td>Brown 975</td><td>Morón</td><td>Del 9 al 15 20% en efectivo - 20% en prendas seleccionadas</td></tr>
+            <tr><td>Mundo Líquido</td><td>Mendoza 190</td><td>Morón</td><td>10% en efectivo o transferencia</td></tr>
+            <tr><td>BarberStyle</td><td>República O. del Uruguay 112</td><td>Morón</td><td>15% de descuento</td></tr>
+            <tr><td>Nitro</td><td>Av. Rivadavia 18184</td><td>Morón</td><td>10% en efectivo del 9 al 15 de junio</td></tr>
+            <tr><td>Cúspide</td><td>San Martín 125</td><td>Morón</td><td>10% en efectivo y cuotas bancarias</td></tr>
+            <tr><td>Pelu Barber</td><td>San Martín 186</td><td>Morón</td><td>20% en corte de pelo</td></tr>
+            <tr><td>Simplicity</td><td>Alte. Brown 633</td><td>Morón</td><td>2x1 en productos seleccionados</td></tr>
+            <tr><td>Multimarca Rever - Bravo - Taverniti</td><td>Alte. Brown 789</td><td>Morón</td><td>Nombrando esta publicidad 20% de descuento en efectivo</td></tr>
+            <tr><td>Marinel</td><td>Agüero 784</td><td>Morón</td><td>10% efectivo</td></tr>
+            <tr><td>Soulivan</td><td>Av. Rivadavia 18292</td><td>Morón</td><td>10% en efectivo - 3 cuotas sin interés</td></tr>
+            <tr><td>Gas Monkey</td><td>Av. Rivadavia 18288</td><td>Morón</td><td>10% en efectivo - 3 cuotas sin interés</td></tr>
+            <tr><td>Terror Bebidas</td><td>Alte. Brown 747, local 205</td><td>Morón</td><td>Descuento en efectivo en productos seleccionados</td></tr>
+            <tr><td>Terror Bebidas</td><td>R.O del Uruguay 211</td><td>Morón</td><td>Descuento en efectivo en productos seleccionados</td></tr>
+            <tr><td>Rock y algo más</td><td>Peatonal Morón, local 29</td><td>Morón</td><td>10% de descuento a partir de $50.000 en efectivo y transferencia</td></tr>
+            <tr><td>Bamba La Musu</td><td>Sarmiento 541</td><td>Morón</td><td>10% de descuento a partir de 3 prendas</td></tr>
+            <tr><td>Bamba La Musu</td><td>Peatonal Morón, local 51</td><td>Morón</td><td>10% de descuento a partir de 3 prendas</td></tr>
+            <tr><td>Bamba La Musu</td><td>Peatonal Morón Local 11</td><td>Morón</td><td>10% de descuento a partir de 3 prendas</td></tr>
+            <tr><td>Yohana Indumentaria</td><td>Sarmiento 880</td><td>Morón</td><td>10% de descuento en ropa en general pagando en efectivo</td></tr>
+            <tr><td>La Revisteria</td><td>Sarmiento 870</td><td>Morón</td><td>10% pagando en transferencia y QR</td></tr>
+            <tr><td>La Fábrica</td><td>25 de Mayo 19</td><td>Morón</td><td>10% de descuento</td></tr>
+            <tr><td>VDH</td><td>-</td><td>Morón</td><td>30% todos los productos y 3x2 en todo el local</td></tr>
+            <tr><td>La Cueva Librería</td><td>Arias 2354</td><td>Castelar</td><td>10% en efectivo</td></tr>
+            <tr><td>John John</td><td>Arias 2399</td><td>Castelar</td><td>20% en efectivo - 3 cuotas sin interés</td></tr>
+            <tr><td>Dos Padres</td><td>Arias 2354</td><td>Castelar</td><td>Del 9 al 15 20% en efectivo - 20% en prendas seleccionadas</td></tr>
+            <tr><td>Tu Vinoteca</td><td>Carlos Casares 847</td><td>Castelar</td><td>20% en efectivo y transferencia en vinos y espumantes - Whisky y Licores 15% en efectivo</td></tr>
+            <tr><td>Running Fitness</td><td>Montes de Oca 2412</td><td>Castelar</td><td>15% de descuento en efectivo y transferencia - 6 cuotas sin interés</td></tr>
+            <tr><td>Mundo Bebidas</td><td>Montes de Oca 2365</td><td>Castelar</td><td>10% 15% 20% efectivo o transferencia en productos seleccionados y promociones bancarias</td></tr>
+            <tr><td>Lava</td><td>Montes de Oca 2409, local 13</td><td>Castelar</td><td>30% 3 y 6 cuotas sin interés 20% transferencia</td></tr>
+            <tr><td>Shine Perfumería</td><td>Av. Rivadavia 20012</td><td>Castelar</td><td>15% en efectivo o transferencia 3 y 6 cuotas sin interés en Fragancias y electro</td></tr>
+            <tr><td>La Bodega de Gustavo</td><td>Santa Rosa 1489</td><td>Castelar</td><td>10% en vinos y champagne</td></tr>
+            <tr><td>Tu Bodeguita</td><td>Av. Rivadavia 2005, local 20</td><td>Castelar</td><td>Vino por caja 10% en efectivo - 30% con banco francés los días martes</td></tr>
+            <tr><td>Benita Home</td><td>Emilio Castro 695</td><td>Haedo</td><td>6 cuotas sin interés / 20% OFF abonando en efectivo o transferencia</td></tr>
+            <tr><td>Legacy</td><td>Av. Rivadavia 16197</td><td>Haedo</td><td>20% en efectivo, 3 y 6 cuotas sin interés</td></tr>
+            <tr><td>Bookin Libros</td><td>Perito Moreno 6</td><td>Haedo</td><td>10% en efectivo, 3 sin interés visa o master</td></tr>
+            <tr><td>Dos Padres</td><td>Murias 305</td><td>Haedo</td><td>Del 9 al 15 20% en efectivo - 20% en prendas seleccionadas</td></tr>
+            <tr><td>La Ginoteca de Haedo</td><td>Vergara 402</td><td>Haedo</td><td>20% de descuento en toda la tienda - Cajas de regalo 40% de descuento (Contiene un Gin y dos vasos)</td></tr>
+            <tr><td>Rutas del Vino</td><td>Carlos Gardel 2402</td><td>El Palomar</td><td>15% en efectivo, débito o transferencia en estuchería, regalería y vinos</td></tr>
+            <tr><td>Rotel</td><td>Gualeguay 408</td><td>El Palomar</td><td>3 remeras a $33.000</td></tr>
+            <tr><td>Vinoteca Cava de Sabor</td><td>Bulnes 1396</td><td>El Palomar</td><td>15% en efectivo en todos los productos</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+      function initializeTableSearch() {
+    const searchTerm = document.getElementById('searchTerm');
+    if (!searchTerm) {
+        console.error('Error: Search term input element not found.');
+        return;
+    }
+
+    const tableElement = document.getElementById('miTabla');
+    if (!tableElement) {
+        console.error('Error: Table element with ID "miTabla" not found.');
+        return;
+    }
+
+    let tbody = tableElement.getElementsByTagName('tbody')[0];
+    let filas;
+
+    if (tbody) {
+        filas = tbody.getElementsByTagName('tr');
+    } else {
+        // Fallback if no tbody is explicitly defined, try to get rows directly from the table
+        // This might be less common but adds robustness
+        filas = tableElement.getElementsByTagName('tr');
+        if (filas.length > 0) {
+            console.warn('Warning: No tbody found in table "miTabla". Searching rows directly under the table. Consider adding a tbody element for better structure.');
+        }
+    }
+
+    if (!filas || filas.length === 0) {
+        console.warn('Warning: No rows found in the table "miTabla". Search functionality will not work.');
+        // We don't return here, as rows might be added dynamically later,
+        // though the current script doesn't handle that.
+        // For this refinement, just logging is sufficient.
+    } else {
+        console.log(`Found ${filas.length} rows in table "miTabla".`);
+    }
+
+    searchTerm.addEventListener('keyup', function() {
+        const término = searchTerm.value.toLowerCase();
+
+        for (let i = 0; i < filas.length; i++) {
+            const celdas = filas[i].getElementsByTagName('td');
+            let coincide = false;
+
+            for (let j = 0; j < celdas.length; j++) {
+                // Ensure cell has content before trying to access innerHTML
+                if (celdas[j] && celdas[j].innerHTML.toLowerCase().includes(término)) {
+                    coincide = true;
+                    break;
+                }
+            }
+            filas[i].style.display = coincide ? '' : 'none';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializeTableSearch);
+
     </script>
+</body>
+</html>
